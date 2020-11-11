@@ -386,3 +386,8 @@ def finalize(
 def initialize(visit_id: int, extension_socket: clientsocket) -> None:
     msg = {"action": "Initialize", "visit_id": visit_id}
     extension_socket.send(msg)
+
+
+# SEMESTER PROJECT: wait for user function
+def delay(delay_s):
+    time.sleep(delay_s)

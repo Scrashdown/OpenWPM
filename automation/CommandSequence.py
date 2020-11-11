@@ -12,6 +12,7 @@ from .Commands.Types import (
     RunCustomFunctionCommand,
     SaveScreenshotCommand,
     ScreenshotFullPageCommand,
+    DelayCommand,
 )
 from .Errors import CommandExecutionError
 
@@ -203,3 +204,9 @@ class CommandSequence:
         commands.insert(0, (InitializeCommand(), 10))
         commands.append((FinalizeCommand(sleep=5), 10))
         return commands
+
+    # SEMESTER PROJECT: wait for user command
+    def delay(self, delay_s):
+        self.total_timeout += delay_s
+        command = DelayCommand(delay_s)
+        self._commands_with_timeout.append((command, delay_s + 1))

@@ -11,6 +11,7 @@ from .Types import (
     RunCustomFunctionCommand,
     SaveScreenshotCommand,
     ScreenshotFullPageCommand,
+    DelayCommand
 )
 
 
@@ -113,6 +114,9 @@ def execute_command(
         browser_commands.initialize(
             visit_id=command.visit_id, extension_socket=extension_socket
         )
+
+    elif type(command) is DelayCommand:
+        browser_commands.delay(command.delay_s)
 
     else:
         raise CommandExecutionError("Invalid Command", command)

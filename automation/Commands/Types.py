@@ -108,3 +108,14 @@ class InitializeCommand(BaseCommand):
 
     def __repr__(self):
         return "IntitializeCommand()"
+
+
+# SEMESTER PROJECT: wait for some time to give the user time to change settings
+class DelayCommand(BaseCommand):
+    """Wait for some time."""
+
+    def __init__(self, delay_s):
+        self.delay_s = delay_s
+
+    def __repr__(self):
+        return "DelayCommand()"
