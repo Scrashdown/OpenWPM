@@ -191,6 +191,36 @@ def deploy_firefox(status_queue, browser_params, manager_params, crash_recovery)
             % browser_params["browser_id"]
         )
 
+    # SEMESTER PROJECT: add content blocking extensions
+    if browser_params["adblock"]:
+        # Install extension
+        ext_loc = os.path.join(root_dir, '../DeployBrowsers/firefox_extensions/adblock_for_firefox-4.24.0-fx.xpi')
+        ext_loc = os.path.normpath(ext_loc)
+        driver.install_addon(ext_loc, temporary=True)
+        logger.debug("BROWSER %i: adBlock Firefox extension loaded"
+                     % browser_params['browser_id'])
+    if browser_params["adblock-plus"]:
+        # Install extension
+        ext_loc = os.path.join(root_dir, '../DeployBrowsers/firefox_extensions/adblock_plus-3.9.5-an+fx.xpi')
+        ext_loc = os.path.normpath(ext_loc)
+        driver.install_addon(ext_loc, temporary=True)
+        logger.debug("BROWSER %i: adBlock Plus Firefox extension loaded"
+                     % browser_params['browser_id'])
+    if browser_params["ghostery"]:
+        # Install extension
+        ext_loc = os.path.join(root_dir, '../DeployBrowsers/firefox_extensions/ghostery_privacy_ad_blocker-8.5.3-an+fx.xpi')
+        ext_loc = os.path.normpath(ext_loc)
+        driver.install_addon(ext_loc, temporary=True)
+        logger.debug("BROWSER %i: Ghostery Firefox extension loaded"
+                     % browser_params['browser_id'])
+    if browser_params["ublock-origin"]:
+        # Install extension
+        ext_loc = os.path.join(root_dir, '../DeployBrowsers/firefox_extensions/uBlock0_1.30.8.firefox.signed.xpi')
+        ext_loc = os.path.normpath(ext_loc)
+        driver.install_addon(ext_loc, temporary=True)
+        logger.debug("BROWSER %i: uBlock Origin Firefox extension loaded"
+                     % browser_params['browser_id'])
+
     # set window size
     driver.set_window_size(*DEFAULT_SCREEN_RES)
 

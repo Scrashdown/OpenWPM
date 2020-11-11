@@ -17,5 +17,10 @@
     "profile_archive_dir": null,
     "recovery_tar": null,
     "donottrack": false,
-    "tracking-protection": false
+    "tracking-protection": false,
+
+    "adblock": false,
+    "adblock-plus": false,
+    "ghostery": false,
+    "ublock-origin": false
 }
